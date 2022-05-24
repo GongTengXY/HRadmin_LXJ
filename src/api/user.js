@@ -1,24 +1,21 @@
 import request from '@/utils/request'
 
-export function login(data) {
-  return request({
-    url: '/vue-admin-template/user/login',
-    method: 'post',
-    data
-  })
-}
+export const login = data => request({
+  method : 'post',
+  url : '/sys/login',
+  data,
+})
 
-export function getInfo(token) {
-  return request({
-    url: '/vue-admin-template/user/info',
-    method: 'get',
-    params: { token }
-  })
-}
+export const getUserInfo = () => request({
+  method : 'post',
+  url : '/sys/profile',
+})
 
-export function logout() {
-  return request({
-    url: '/vue-admin-template/user/logout',
-    method: 'post'
-  })
+//获取用户头像
+export const getUserPhoto = (params) => request({
+  method : 'get',
+  url : `/sys/user/${params}`,
+})
+export const logout = () => {
+  
 }
