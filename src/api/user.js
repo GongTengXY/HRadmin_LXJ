@@ -11,11 +11,8 @@ export const getUserInfo = () => request({
   url : '/sys/profile',
 })
 
-//获取用户头像
+//获取用户基本信息可用来获取头像
 export const getUserPhoto = (params) => request({
   method : 'get',
-  url : `/sys/user/${params}`,
+  url : `/sys/user/${params}`
 })
-export const logout = () => {
-  
-}

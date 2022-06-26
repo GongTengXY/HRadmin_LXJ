@@ -66,8 +66,20 @@ export const constantRoutes = [
     }]
   },
 
+  {
+    path : '/Import',
+    component : Layout,
+    hidden : true,         //隐藏在左侧菜单中不显示
+    children : [{
+      path : '',           //什么也不写表示默认路由
+      component : () => import('@/views/import')
+    }]
+  },
+
   // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
+  { path: '*', redirect: '/404', hidden: true },
+
+
 ]
 // 动态路由
 export const aysncRouter = [

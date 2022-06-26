@@ -3,8 +3,8 @@
     <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
 
     <div class="app-breadcrumb">
-      江苏传智播客教育科技股份有限公司
-      <!-- <span class="breadBtn">体验版</span> -->
+      传智教育
+      <span class="breadBtn">体验版</span>
     </div>
 
     <div class="right-menu">
@@ -93,16 +93,16 @@ export default {
   margin-left: 10px;
   color: #ffffff;
   cursor: text;
-  // .breadBtn {
-  //   background: #84a9fe;
-  //   font-size: 14px;
-  //   padding: 0 10px;
-  //   display: inline-block;
-  //   height: 30px;
-  //   line-height: 30px;
-  //   border-radius: 10px;
-  //   margin-left: 15px;
-  // }
+  .breadBtn {
+    background: #84a9fe;
+    font-size: 14px;
+    padding: 0 10px;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 10px;
+    margin-left: 15px;
+  }
 }
 
   .right-menu {

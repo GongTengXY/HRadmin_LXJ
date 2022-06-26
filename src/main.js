@@ -15,6 +15,9 @@ import router from './router'
 import '@/icons' // icon
 import '@/permission' // permission control
 import * as directives from '@/directives'
+import Component from '@/components'
+import * as filters from '@/filters';
+import Print from 'vue-print-nb'
 
 /**
  * If you don't want to use mock-server
@@ -34,14 +37,22 @@ Object.keys(directives).forEach(key => {
   Vue.directive(key, directives[key])
 })
 
-
+//定义全局过滤器
+Object.keys(filters).forEach(key => {
+  //注册全局过滤器
+  Vue.filter(key,filters[key])
+})
 
 Vue.config.devtools = true;
 
+Vue.use(Print)
 
-Vue.use(ElementUI, { locale })
+// Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明
-// Vue.use(ElementUI)
+Vue.use(ElementUI)
+
+//注册自己的插件
+Vue.use(Component)
 
 Vue.config.productionTip = false
 
