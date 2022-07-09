@@ -3,8 +3,8 @@ import Layout from '@/layout'
 
 export default {
     //路由规则
-    path : '/social',
-    name : 'social',   //后面做权限的时候会用到
+    path : '/social_securitys',
+    name : 'social_securitys',   //后面做权限的时候会用到
     component : Layout,
     children : [
         {

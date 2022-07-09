@@ -39,3 +39,10 @@ export const addRole = data => request({
     url : `/sys/role`,
     data,
 })
+
+//根据角色id分配权限
+export const assginPermisson = data => request({
+    method : 'put',
+    url : `/sys/role/assignPrem`,
+    data,
+})

@@ -3,8 +3,8 @@ import Layout from '@/layout'
 
 export default {
     //路由规则
-    path : '/attandancds',
-    name : 'attandancds',   //后面做权限的时候会用到
+    path : '/attendances',
+    name : 'attendances',   //后面做权限的时候会用到
     component : Layout,
     children : [
         {

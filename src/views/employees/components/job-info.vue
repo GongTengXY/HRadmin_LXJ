@@ -157,7 +157,7 @@
       </div>
       <!-- 从业信息 -->
       <el-form-item>
-        <el-button type="primary" @click="saveJob">保存更新</el-button>
+        <el-button type="primary" @click="saveJob" :disabled="!checkPermission('POINT-USER-UPDATE')">保存更新</el-button>
         <el-button @click="$router.back()">返回</el-button>
       </el-form-item>
     </el-form>

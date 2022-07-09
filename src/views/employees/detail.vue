@@ -12,7 +12,7 @@
                           <el-input v-model="userInfo.password2" type="password" style="width: 300px"></el-input>
                       </el-form-item>
                       <el-form-item>
-                        <el-button type="primary" @click="saveInfo">更新</el-button>
+                        <el-button type="primary" @click="saveInfo" :disabled="!checkPermission('POINT-USER-UPDATE')">更新</el-button>
                     </el-form-item>
                   </el-form>
               </el-tab-pane>

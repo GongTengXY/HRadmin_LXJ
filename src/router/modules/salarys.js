@@ -4,7 +4,7 @@ import Layout from '@/layout'
 export default {
     //路由规则
     path : '/salary',
-    name : 'salary',   //后面做权限的时候会用到
+    name : 'salarys',   //后面做权限的时候会用到
     component : Layout,
     children : [
         {

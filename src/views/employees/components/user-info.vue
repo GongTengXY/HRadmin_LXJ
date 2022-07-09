@@ -72,7 +72,7 @@
       <!-- 保存个人信息 -->
       <el-row class="inline-info" type="flex" justify="center">
         <el-col :span="12" class="newAdjust">
-          <el-button type="primary" @click="saveUser">保存更新</el-button>
+          <el-button type="primary" @click="saveUser" :disabled="!checkPermission('POINT-USER-UPDATE')">保存更新</el-button>
           <el-button @click="$router.back()">返回</el-button>
         </el-col>
       </el-row>
@@ -282,7 +282,7 @@
         <!-- 保存员工信息 -->
         <el-row class="inline-info" type="flex" justify="center">
           <el-col :span="12" class="newAdjust">
-            <el-button type="primary" @click="savePersonal">保存更新</el-button>
+            <el-button type="primary" @click="savePersonal" :disabled="!checkPermission('POINT-USER-UPDATE')">保存更新</el-button>
             <el-button @click="$router.back()">返回</el-button>
           </el-col>
         </el-row>

@@ -26,3 +26,9 @@ export const getPermissionInfo = (id) => request({
     url : `/sys/permission/${id}`,
     method : 'get'
 })
+
+//删除权限点
+export const deletePermission = (id) => request({
+    url : `/sys/permission/${id}`,
+    method : 'delete'
+})

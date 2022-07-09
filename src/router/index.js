@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 //引入多个模块的规则
 import approvalsRouter from './modules/approvals'
 import departmentsRouter from './modules/departments'
@@ -40,7 +41,7 @@ import Layout from '@/layout'
  * all roles can be accessed
  */
 
-// 静态路由
+// 静态路由 
 export const constantRoutes = [
   {
     path: '/login',
@@ -77,9 +78,7 @@ export const constantRoutes = [
   },
 
   // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true },
-
-
+  // { path: '*', redirect: '/404', hidden: true },
 ]
 // 动态路由
 export const aysncRouter = [
@@ -95,8 +94,8 @@ export const aysncRouter = [
 
 const createRouter = () => new Router({
   // mode: 'history', // require service support
-  scrollBehavior: () => ({ y: 0 }),
-  routes: [...constantRoutes,...aysncRouter] //静态路由和动态路由的临时合并
+  scrollBehavior: () => ({ y: 0 }), 
+  routes: [...constantRoutes] //静态路由
 })
 
 const router = createRouter()
@@ -104,7 +103,7 @@ const router = createRouter()
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
 export function resetRouter() {
   const newRouter = createRouter()
-  router.matcher = newRouter.matcher // reset router
+  router.matcher = newRouter.matcher // 重新设置路由的可匹配路径
 }
 
 export default router

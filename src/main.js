@@ -19,6 +19,7 @@ import Component from '@/components'
 import * as filters from '@/filters';
 import Print from 'vue-print-nb'
 
+import CheckPermission from '@/mixin/checkPermission'
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
@@ -53,6 +54,9 @@ Vue.use(ElementUI)
 
 //注册自己的插件
 Vue.use(Component)
+
+//注册全局检查权限对象
+Vue.mixin(CheckPermission)
 
 Vue.config.productionTip = false
 
