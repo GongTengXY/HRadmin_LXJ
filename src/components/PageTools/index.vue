@@ -34,7 +34,7 @@ export default {
   margin: 10px 0 ;
   .BeforeInfo {
     line-height: 30px;
-    width: 50%;
+    width: 80%;
     padding: 0 10px;
     border: 1px solid rgba(145, 213, 255, 1);
     border-radius: 3px;
