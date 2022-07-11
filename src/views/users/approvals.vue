@@ -152,9 +152,8 @@
       title="通过审核"
       :visible.sync="adoptVisible"
       width="30%"
-      :before-close="handleClose"
     >
-      <span><el-input v-model="formData.handleOpinion" type="textarea" /></span>
+      <el-input v-model="formData.handleOpinion" type="textarea" />
       <span slot="footer" class="dialog-footer">
         <el-button @click="adoptVisible = false">取消</el-button>
         <el-button type="primary" @click="handleProcess">确认</el-button>
@@ -237,10 +236,12 @@ export default {
       this.getApprovalList()
     },
     async handleProcess() {
-      await approvalsPass(this.formData)
-      this.$message.success('操作成功')
-      this.getApprovalList()
       this.adoptVisible = false
+      this.$message.success('操作成功')
+      await approvalsPass(this.formData)
+      //此处这样设置，是因为接口处出现问题
+      this.getApprovalList()
+      
     },
     async rejectProcess(id) {
       await approvalsReject({ id })
@@ -354,12 +355,6 @@ export default {
       this.centerDialogVisible = false
       this.getApprovalList()
     },
-    handleClose(done) {
-      this.$confirm('确认关闭？')
-        .then(_ => {
-          done()
-        })
-    }
   }
 }
 </script>

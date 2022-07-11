@@ -52,7 +52,8 @@ service.interceptors.response.use(response => {
         store.dispatch('user/logout')
         router.push('/login')
     } else {
-       Message.error(error.message)   //提示错误信息 
+        console.log(error.message)
+    //    Message.error(error.message)   //提示错误信息 
     }   
     return Promise.reject(error)   //返回执行错误， 让当前执行链跳出成功，直接进入catch
 })

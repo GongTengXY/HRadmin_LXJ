@@ -1,5 +1,5 @@
 <template>
-  <div v-loading="loading" class="myInfo">
+  <div class="myInfo">
     <div class="myInfoTop">
       <div class="topLab">
         <span class="act">个人信息</span>
@@ -7,7 +7,7 @@
     </div>
     <div class="myInfoCont">
       <div class="myInfoPic">
-        <img src="@/assets/common/img.jpeg" width="100" alt>
+        <img v-imagerror="defaultImg" :src="myInfo.staffPhoto" width="100" alt>
       </div>
       <div>
         <el-form ref="myInfo" :model="myInfo" label-width="80px">
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { getUserDetailById } from '@/api/user'
+import { getUserPhoto } from '@/api/user'
 import { updateUser } from '@/api/approvals'
 import { updatedEmployeeInfo, getEmployeeInfo } from '@/api/employees'
 import { mapGetters } from 'vuex'
@@ -45,11 +45,12 @@ export default {
   name: 'UsersTableIndex',
   data() {
     return {
-      loading: false,
+      // loading: false,
       myInfo: {
         dateOfBirth: '',
         sex: ''
-      }
+      },
+      defaultImg : require('@/assets/common/img.jpeg')
     }
   },
   computed: {
@@ -70,7 +71,7 @@ export default {
     },
     async getUserInfo() {
       this.loading = true
-      const detailData = await getUserDetailById(this.userId)
+      const detailData = await getUserPhoto(this.userId)
       const personData = await getEmployeeInfo(this.userId)
       detailData.sex = personData.sex
       detailData.dateOfBirth = personData.dateOfBirth

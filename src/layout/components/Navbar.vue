@@ -8,6 +8,12 @@
     </div>
 
     <div class="right-menu">
+      <!-- 语言包 -->
+      <Lang class="right-menu-item"/>
+      <!-- 全屏按钮 -->
+      <ScreenFull class="right-menu-item" style="margin-right:10px"/>
+      <!-- 主题颜色 -->
+      <ThemePicker class="color_picker"/>
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <img v-imagerror="defaultImg" :src="staffPhoto" class="user-avatar">
@@ -110,6 +116,11 @@ export default {
     height: 100%;
     line-height: 50px;
 
+    .color_picker{
+      margin: 10px 10px 0 0;
+      vertical-align: middle;
+    }
+
     .user-avatar {
         cursor: pointer;
         width: 30px;
@@ -137,7 +148,7 @@ export default {
       height: 100%;
       font-size: 18px;
       color: #5a5e66;
-      vertical-align: text-bottom;
+      vertical-align: middle;
 
       &.hover-effect {
         cursor: pointer;
@@ -167,5 +178,6 @@ export default {
       }
     }
   }
+
 }
 </style>

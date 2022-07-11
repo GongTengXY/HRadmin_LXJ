@@ -18,6 +18,7 @@ import * as directives from '@/directives'
 import Component from '@/components'
 import * as filters from '@/filters';
 import Print from 'vue-print-nb'
+import i18n from '@/lang' // 引入i18n实例
 
 import CheckPermission from '@/mixin/checkPermission'
 /**
@@ -50,7 +51,9 @@ Vue.use(Print)
 
 // Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明
-Vue.use(ElementUI)
+Vue.use(ElementUI,{
+  i18n: (key, value) => i18n.t(key, value)
+})
 
 //注册自己的插件
 Vue.use(Component)
@@ -63,6 +66,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  i18n,
   store,
   render: h => h(App)
 })
