@@ -9,7 +9,8 @@ export default {
     children : [
         {
             //二级路由的path什么都不用写的时候，此时它表示二级路由默认路由
-            path : '',   
+            path : '',
+            name : 'settings',   
             component : () => import('@/views/setting'),
             //路由元信息
             meta : {

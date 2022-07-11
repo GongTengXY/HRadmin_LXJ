@@ -10,6 +10,7 @@ export default {
         {
             //二级路由的path什么都不用写的时候，此时它表示二级路由默认路由
             path : '',   //这里不用写，则表示 /permission 不但有布局layou还有下面这个员工主页的路由
+            name : 'permissions',
             component : () => import('@/views/permission'),
             //路由元信息
             meta : {
