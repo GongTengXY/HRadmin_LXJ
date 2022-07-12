@@ -15,6 +15,36 @@ const name = defaultSettings.title || 'vue Admin Template' // page title
 // port = 9528 npm run dev OR npm run dev --port = 9528
 const port = process.env.port || process.env.npm_config_port || 9528 // dev port
 
+let cdn = {css : [],js : []}
+const isProd = process.env.NODE_ENV === 'production'    //判断是否为生产环境
+let externals = {}
+if (isProd) {
+  //只有生产环境才需要排除这些包，引入cdn文件
+  //webpack要排除的包名
+  externals = {
+    'vue' : 'Vue',
+    'element-ui' : 'ELEMENT',
+    'xlsx' : 'XLSX',
+  }
+  //引入cdn文件
+  cdn = {
+    css: [
+      // element-ui css
+      'https://cdn.jsdelivr.net/npm/element-ui@2.13.2/lib/theme-chalk/index.css' // 样式表
+    ],
+    js: [
+      // vue must at first!
+      // 'https://unpkg.com/vue/dist/vue.js', // vuejs
+      'https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js',   //vue.js
+      // element-ui js
+      'https://cdn.jsdelivr.net/npm/element-ui@2.13.2/lib/index.js', // elementUI
+      'https://cdn.jsdelivr.net/npm/xlsx@0.16.9/dist/xlsx.min.js',
+      'https://cdn.jsdelivr.net/npm/xlsx@0.16.9/dist/jszip.min.js',
+      // 'https://cdn.jsdelivr.net/npm/xlsx@0.16.9/dist/xlsx.full.min.js'
+    ]
+  }
+}
+
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
   /**
@@ -41,6 +71,8 @@ module.exports = {
       '/api': {
         target: 'http://ihrm.itheima.net/', // 跨域请求的地址
         changeOrigin: true // 只有这个值为true的情况下 才表示开启跨域
+        // 重写路径 
+        // pathRewrite : {}
       }
     }
   },
@@ -52,7 +84,11 @@ module.exports = {
       alias: {
         '@': resolve('src')
       }
-    }
+    },
+    //webpack要排除的包名
+    // key(是要排除的包名) value(是CDN引入的包的全局变量名)
+    // 因为要排除一些大一些的包，所以后面得引入CDN文件，对应的CDN文件有对应的全局变量名
+    externals,
   },
   chainWebpack(config) {
     // it can improve the speed of the first screen, it is recommended to turn on preload
@@ -65,6 +101,12 @@ module.exports = {
         include: 'initial'
       }
     ])
+
+    //注入cdn变量
+    config.plugin('html').tap((args) => {
+      args[0].cdn = cdn     //这一步就是给args[0]的这个对象添加上cdn的属性及属性值
+      return args
+    })
 
     // when there are many pages, it will cause too many meaningless requests
     config.plugins.delete('prefetch')
