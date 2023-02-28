@@ -3,7 +3,7 @@
     <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
 
     <div class="app-breadcrumb">
-      传智教育
+      HR人员后台管理系统
       <span class="breadBtn">体验版</span>
     </div>
 

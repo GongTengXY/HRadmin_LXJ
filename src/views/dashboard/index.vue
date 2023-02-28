@@ -9,7 +9,7 @@
           </div>
           <div class="headInfoTip">
             <p class="firstChild">早安，{{name}}，祝你开心每一天！</p>
-            <p class="lastChild">{{name}} | {{userInfo.company}}-{{userInfo.departmentName}}</p>
+            <p class="lastChild">{{name}} | {{userInfo.company.includes('传智') ? '朝日集团' : userInfo.company}}-{{userInfo.departmentName}}</p>
           </div>
         </div>
         <div class="fr" />
@@ -37,7 +37,7 @@
                   <div class="item">
                     <img src="@/assets/common/img.jpeg" alt="">
                     <div>
-                      <p><span class="col">朱继柳</span> 发布了 第1期“传智大讲堂”互动讨论获奖名单公布</p>
+                      <p><span class="col">朱继柳</span> 发布了 第1期“朝日大讲堂”互动讨论获奖名单公布</p>
                       <p>2018-07-21 15:21:38</p>
                     </div>
                   </div>
@@ -46,7 +46,7 @@
                   <div class="item">
                     <img src="@/assets/common/img.jpeg" alt="">
                     <div>
-                      <p><span class="col">朱继柳</span> 发布了 第2期“传智大讲堂”互动讨论获奖名单公布</p>
+                      <p><span class="col">朱继柳</span> 发布了 第2期“朝日大讲堂”互动讨论获奖名单公布</p>
                       <p>2018-07-21 15:21:38</p>
                     </div>
                   </div>
@@ -55,7 +55,7 @@
                   <div class="item">
                     <img src="@/assets/common/img.jpeg" alt="">
                     <div>
-                      <p><span class="col">朱继柳</span> 发布了 第3期“传智大讲堂”互动讨论获奖名单公布</p>
+                      <p><span class="col">朱继柳</span> 发布了 第3期“朝日大讲堂”互动讨论获奖名单公布</p>
                       <p>2018-07-21 15:21:38</p>
                     </div>
                   </div>
